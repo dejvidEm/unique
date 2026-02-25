@@ -5,6 +5,7 @@ import { SessionProvider } from "next-auth/react";
 import { ThemeProvider } from "next-themes";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
+import { Analytics } from "@vercel/analytics/next";
 import { LanguageProvider } from "./context/LanguageContext";
 import Header from "./components/layout/header";
 import Footer from "./components/layout/footer";
@@ -45,6 +46,7 @@ export default function RootLayout({
               {children}
               {!hideLayout && <Footer />}
               <ScrollToTop />
+              <Analytics />
             </ThemeProvider>
           </LanguageProvider>
         </SessionProvider>
