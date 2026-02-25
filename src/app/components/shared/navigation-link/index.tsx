@@ -1,12 +1,11 @@
 import Link from "next/link";
 
-const NavigationLink = (props: { navigationTitle: string, navigationLink: string , transform: boolean }) => {
-    const { navigationTitle, navigationLink ,transform } = props;
-    
+const NavigationLink = (props: { navigationTitle: string; navigationLink: string; transform: boolean; fullWidth?: boolean }) => {
+    const { navigationTitle, navigationLink, transform, fullWidth } = props;
 
     return (
         <>
-            <Link href={navigationLink} className="group flex gap-4 items-center w-fit bg-primary hover:bg-secondary dark:border dark:border-primary dark:hover:border dark:hover:border-white/30 rounded-full transition-all duration-200 ease-in-out">
+            <Link href={navigationLink} className={`group flex gap-4 items-center bg-primary hover:bg-secondary dark:border dark:border-primary dark:hover:border dark:hover:border-white/30 rounded-full transition-all duration-200 ease-in-out ${fullWidth ? "w-full justify-center" : "w-fit"}`}>
                 <span className="pl-8 text-lg font-bold text-secondary group-hover:text-white group-hover:translate-x-10 transform transition-transform duration-200 ease-in-out">{navigationTitle}</span>
                 <svg className={` py-1 ${transform === true ? "group-hover:-translate-x-36 group-hover:rotate-45" : ""} transition-all duration-200 ease-in-out `} width="58" height="58" viewBox="0 0 58 58" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <g filter="url(#filter0_d_1_873)">
