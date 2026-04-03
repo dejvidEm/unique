@@ -11,7 +11,7 @@
   --breakpoint-xsm: 500px;
 
   /* color */
-  --color-primary: #C1FF72;
+  --color-primary: #9B8CFF;
   --color-secondary: #1F2A2E;
   --color-lightgray: #F4F8FA;
   --color-overlay: #000A0B99;
@@ -36,10 +36,25 @@
   --height-700px: 700px;
 }
 
+html {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+html::-webkit-scrollbar {
+  display: none;
+}
+
 body {
   margin: 0;
   padding: 0;
   height: 100%;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+body::-webkit-scrollbar {
+  display: none;
 }
 
 @layer utilities {

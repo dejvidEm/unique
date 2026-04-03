@@ -1,14 +1,12 @@
-
 import ProjectList from "@/app/components/projects";
 import Herobanner from "@/app/components/shared/hero-banner";
-import { getAllProjects } from "@/lib/markdown";
 import { Metadata } from "next";
+
 export const metadata: Metadata = {
     title: "Projects | Studiova",
 };
 
 export default function Page() {
-    const projects = getAllProjects();
     return (
         <main>
             <Herobanner

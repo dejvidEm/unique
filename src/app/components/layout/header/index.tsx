@@ -139,20 +139,11 @@ const Header = () => {
                                                     <Icon icon="solar:logout-outline" width="25" height="25" />
                                                 </button>
                                             </div>
-                                        ) : (
-                                            <div className="flex gap-3">
-                                                <Link href={"/signin"} className="flex justify-center items-center gap-2 w-full text-secondary dark:text-white text-xl font-bold rounded-full border border-secondary/20 dark:border-white py-1.5 px-4.5 hover:bg-secondary/15">
-                                                    {t("signIn")}
-                                                </Link>
-                                                <Link href={"/signup"} className="flex justify-center items-center gap-2 w-full text-white text-xl font-bold rounded-full bg-secondary py-2 px-4.5 hover:bg-secondary/90">
-                                                    {t("signUp")}
-                                                </Link>
-                                            </div>
-                                        )}
+                                        ) : null}
                                     </div>
                                     <div>
-                                        <Link href="tel:+1-212-456-7890" className="text-secondary/60 dark:text-white/60 hover:text-secondary dark:hover:text-white">+1-212-456-7890</Link>
-                                        <Link href="mailto:info@unique.com"><h4>info@unique.com</h4></Link>
+                                        <Link href="tel:+421918722720" className="text-secondary/60 dark:text-white/60 hover:text-secondary dark:hover:text-white">+421 918 722 720</Link>
+                                        <Link href="mailto:info@unique.sk"><h4>info@unique.sk</h4></Link>
                                     </div>
                                 </div>
                             }

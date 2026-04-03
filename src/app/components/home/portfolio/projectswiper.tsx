@@ -1,9 +1,11 @@
 "use client";
-import { useEffect, useState } from "react";
+import { useEffect, useState, type MutableRefObject } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay } from "swiper/modules";
+import type { Swiper as SwiperInstance } from "swiper";
 import Image from "next/image";
 import Link from "next/link";
+import { useLanguage } from "@/app/context/LanguageContext";
 
 type Project = {
     title: string;
@@ -13,14 +15,16 @@ type Project = {
     coverImage: string;
 };
 
-const Projectswiper = () => {
-    const [projects, setProjects] = useState<Project[]>([]);  
+const Projectswiper = ({ swiperRef }: { swiperRef: MutableRefObject<SwiperInstance | null> }) => {
+    const { locale } = useLanguage();
+    const [projects, setProjects] = useState<Project[]>([]);
 
     useEffect(() => {
-        fetch("/api/projects")
+        fetch(`/api/projects?lang=${locale}`)
             .then((res) => res.json())
-            .then((data) => setProjects(data));
-    }, []);
+            .then((data) => setProjects(Array.isArray(data) ? data : []))
+            .catch(() => setProjects([]));
+    }, [locale]);
 
     return (
         <Swiper
@@ -28,6 +32,9 @@ const Projectswiper = () => {
             autoplay={{
                 delay: 2000,
                 disableOnInteraction: false,
+            }}
+            onSwiper={(swiper) => {
+                swiperRef.current = swiper;
             }}
             slidesPerView={"auto"}
             breakpoints={{
@@ -57,9 +64,9 @@ const Projectswiper = () => {
                                 </div>
                                 <Link
                                     href={`/projects/${value.slug}`}
-                                    className="absolute top-0 left-0 backdrop-blur-xs bg-black/70 w-full h-full hidden group-hover:flex"
+                                    className="absolute inset-0 flex items-center justify-center opacity-0 bg-black/0 backdrop-blur-0 transition-all duration-300 ease-out group-hover:opacity-100 group-hover:bg-black/70 group-hover:backdrop-blur-sm"
                                 >
-                                    <span className="flex justify-center items-center p-5 w-full">
+                                    <span className="scale-90 opacity-0 transition-all duration-300 ease-out delay-75 group-hover:scale-100 group-hover:opacity-100">
                                         <svg width="65" height="64" viewBox="0 0 65 64" fill="none" xmlns="http://www.w3.org/2000/svg">
                                             <rect x="0.333374" width="64" height="64" rx="32" fill="#C1FF72" />
                                             <path

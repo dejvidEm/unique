@@ -33,6 +33,8 @@ const translations: Record<Locale, Record<string, string>> = {
     copyright: "© Unique copyright 2025",
     // Hero
     heroSubtext: "We create high-performing digital designs that elevate brands and enhance conversions.",
+    heroCarouselPrev: "Previous slide",
+    heroCarouselNext: "Next slide",
     // Stats
     statsName: "Stats & facts",
     statsHeading: "High quality web design solutions you can trust.",
@@ -102,6 +104,13 @@ const translations: Record<Locale, Record<string, string>> = {
     // About page detail section
     aboutDetailPara1: "It's a canvas for your creativity. It's your opportunity to transform bold ideas into dynamic, interactive experiences. Your work can shape identities, tell compelling stories, or spark meaningful change. As the digital landscape grows, so do the possibilities. And whether you thrive working remotely or in a buzzing agency space, the thrill of seeing your vision come to life is unmatched.",
     aboutDetailPara2: "At Unique, we bring ideas to life through a range of services: branding, web development, agency solutions, content creation, SaaS, and motion & 3D modeling. As a web designer, you merge artistry and technology to craft \"digital experiences\" that inform, captivate, and inspire. Every day brings something new—one moment you're sketching innovative concepts, the next you're turning them into seamless, responsive designs. Web design keeps you pushing boundaries and creating at every turn!",
+    // Project detail
+    projectScopeOfWork: "Scope of work",
+    projectIndustry: "Industry",
+    projectRaised: "Raised",
+    projectWebsite: "Website",
+    projectDescription: "Description",
+    projectLoading: "Loading…",
   },
   sk: {
     menu: "Ponuka",
@@ -121,6 +130,8 @@ const translations: Record<Locale, Record<string, string>> = {
     tagline: "Postavme niečo spoločne?",
     copyright: "© Unique autorské práva 2025",
     heroSubtext: "Vytvárame vysoko výkonné digitálne dizajny, ktoré pozdvihujú značky a zvyšujú konverzie.",
+    heroCarouselPrev: "Predchádzajúci snímok",
+    heroCarouselNext: "Ďalší snímok",
     statsName: "Štatistiky a fakty",
     statsHeading: "Kvalitné webové dizajnové riešenia, ktorým môžete dôverovať.",
     statsDescription: "Pri výbere agentúry pre webový dizajn je dôležité zvážiť jej povesť, skúsenosti a špecifické potreby vášho projektu.",
@@ -178,6 +189,12 @@ const translations: Record<Locale, Record<string, string>> = {
     heroBannerProjectsDesc: "<span>Prehliadka tvorivosti</span>, stratégie a výsledkov—preskúmajte projekty, ktoré nás definujú.",
     aboutDetailPara1: "Je to plátno pre vašu tvorivosť. Je to vaša príležitosť premeniť smelé nápady na dynamické, interaktívne zážitky. Vaša práca môže formovať identity, rozprávať presvedčivé príbehy alebo vyvolávať zmysluplné zmeny. Keď digitálna krajina rastie, rastú aj možnosti. A či už prosperujete pri práci na diaľku alebo v rušnom priestore agentúry, vzrušenie z toho, keď sa vaša vízia zhmotní, je neporovnateľné.",
     aboutDetailPara2: "V Unique dávame nápady do života prostredníctvom radu služieb: branding, vývoj webov, riešenia pre agentúry, tvorba obsahu, SaaS a motion & 3D modelovanie. Ako webový dizajnér spájate umenie a technológiu, aby ste vytvorili „digitálne zážitky“, ktoré informujú, fascinujú a inšpirujú. Každý deň prináša niečo nové—v jednom momente skicujete inovatívne koncepty, v ďalšom ich premieňate na bezproblémové, responzívne dizajny. Webový dizajn vás neustále posúva vpred a tvoríte na každom kroku!",
+    projectScopeOfWork: "Rozsah práce",
+    projectIndustry: "Odvetvie",
+    projectRaised: "Získané financovanie",
+    projectWebsite: "Webová stránka",
+    projectDescription: "Popis",
+    projectLoading: "Načítavam…",
   },
 };
 
@@ -189,7 +206,12 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
 
   useEffect(() => {
     const stored = localStorage.getItem(STORAGE_KEY) as Locale | null;
-    if (stored === "en" || stored === "sk") setLocaleState(stored);
+    const next: Locale = stored === "en" || stored === "sk" ? stored : "sk";
+    setLocaleState(next);
+    if (typeof window !== "undefined") {
+      localStorage.setItem(STORAGE_KEY, next);
+      document.cookie = `${STORAGE_KEY}=${next};path=/;max-age=31536000;SameSite=Lax`;
+    }
     setMounted(true);
   }, []);
 
@@ -197,6 +219,7 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
     setLocaleState(newLocale);
     if (typeof window !== "undefined") {
       localStorage.setItem(STORAGE_KEY, newLocale);
+      document.cookie = `${STORAGE_KEY}=${newLocale};path=/;max-age=31536000;SameSite=Lax`;
       document.documentElement.lang = newLocale === "sk" ? "sk" : "en";
     }
   }, []);
