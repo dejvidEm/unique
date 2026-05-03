@@ -7,6 +7,23 @@ const nextConfig: NextConfig = {
   images: {
     unoptimized: true,
   },
+  /** Early connection to Iconify API (Lighthouse: preconnect candidate) */
+  async headers() {
+    return [
+      {
+        source: "/:path*",
+        headers: [
+          {
+            key: "Link",
+            value: "<https://api.iconify.design>; rel=preconnect; crossorigin",
+          },
+        ],
+      },
+    ];
+  },
+  experimental: {
+    optimizePackageImports: ["@iconify/react", "lucide-react"],
+  },
 };
 
 export default nextConfig;
