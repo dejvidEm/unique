@@ -16,9 +16,6 @@ const translations: Record<Locale, Record<string, string>> = {
   en: {
     // Menu & layout
     menu: "Menu",
-    signOut: "Sign Out",
-    signIn: "Sign In",
-    signUp: "Sign Up",
     home: "Home",
     about: "About",
     projects: "Projects",
@@ -114,9 +111,6 @@ const translations: Record<Locale, Record<string, string>> = {
   },
   sk: {
     menu: "Ponuka",
-    signOut: "Odhlásiť sa",
-    signIn: "Prihlásiť sa",
-    signUp: "Registrovať sa",
     home: "Domov",
     about: "O nás",
     projects: "Projekty",

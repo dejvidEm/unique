@@ -31,12 +31,6 @@ export const Introduction = () => {
       img: "images/documentation/Categories=Typescript.svg",
       version: "5.6.3"
     },
-    {
-      id: "5",
-      packageName: "Next Auth",
-      img: "/images/documentation/nextauth.png",
-      version: "4.24.11"
-    }
   ]
   return (
     <>

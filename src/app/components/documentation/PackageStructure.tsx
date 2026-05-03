@@ -139,20 +139,6 @@ export const PackageStructure = () => {
                                                 icon="tabler:folder"
                                                 className="text-primary text-base inline-block me-2"
                                               />
-                                              (auth) (Contains all auth pages)
-                                            </span>
-                                          </div>
-
-                                        </li>
-                                        <li className="py-2">
-
-                                          <div className="flex items-center gap-3">
-                                            <p className="text-xl text-black dark:text-white/50" >|—</p>
-                                            <span className="font-medium text-dark dark:text-white/50">
-                                              <Icon
-                                                icon="tabler:folder"
-                                                className="text-primary text-base inline-block me-2"
-                                              />
                                               about
                                             </span>
                                           </div>
@@ -339,14 +325,6 @@ export const PackageStructure = () => {
                                   }
                                 </div>
                                 <ul className="ps-5 md:ps-12 list-unstyled red">
-                                  <li className="py-2">
-                                    <div className="flex items-center gap-3">
-                                      <p className="text-xl text-black dark:text-white/50" >|—</p>
-                                      <span className="font-medium text-dark dark:text-white/50">
-                                        auth.ts
-                                      </span>
-                                    </div>
-                                  </li>
                                   <li className="py-2">
                                     <div className="flex items-center gap-3">
                                       <p className="text-xl text-black dark:text-white/50" >|—</p>

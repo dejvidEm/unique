@@ -1,6 +1,5 @@
 "use client";
 
-import { SessionProvider } from "next-auth/react";
 import { ThemeProvider } from "next-themes";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
@@ -24,20 +23,17 @@ export default function ClientProviders({ children }: { children: React.ReactNod
     });
   }, [pathname]);
 
-  const excludedRoutes = ["/signin", "/signup", "/forgot-password"];
-  const hideLayout = excludedRoutes.includes(pathname) || is404;
+  const hideLayout = is404;
 
   return (
-    <SessionProvider>
-      <LanguageProvider>
-        <ThemeProvider attribute="class" enableSystem={false} defaultTheme="light">
-          {!hideLayout && <Header />}
-          {children}
-          {!hideLayout && <Footer />}
-          <ScrollToTop />
-          <Analytics />
-        </ThemeProvider>
-      </LanguageProvider>
-    </SessionProvider>
+    <LanguageProvider>
+      <ThemeProvider attribute="class" enableSystem={false} defaultTheme="light">
+        {!hideLayout && <Header />}
+        {children}
+        {!hideLayout && <Footer />}
+        <ScrollToTop />
+        <Analytics />
+      </ThemeProvider>
+    </LanguageProvider>
   );
 }

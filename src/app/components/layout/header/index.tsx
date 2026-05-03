@@ -4,19 +4,15 @@ import MenuList from "./MenuList";
 import Link from "next/link";
 import ThemeToggler from "./ThemeToggle";
 import { usePathname } from "next/navigation";
-import { signOut, useSession } from "next-auth/react";
-import { Icon } from "@iconify/react/dist/iconify.js";
 import Logo from "../logo";
 import LanguageSwitcher from "./LanguageSwitcher";
 import { useLanguage } from "@/app/context/LanguageContext";
 
 const Header = () => {
-    const { data: session } = useSession();
     const { locale, t } = useLanguage();
-    const [user, setUser] = useState<{ user: any } | null>(null);
     const [menuData, setMenuData] = useState<any>(null);
     const [menuOpen, setMenuOpen] = useState(false);
-    const [isClosing, setIsClosing] = useState(false); // Track closing animation
+    const [isClosing, setIsClosing] = useState(false);
     const [sticky, setSticky] = useState(false);
     const pathname = usePathname();
     const menuRef = useRef<HTMLDivElement>(null);
@@ -27,30 +23,19 @@ const Header = () => {
 
     useEffect(() => {
         window.addEventListener("scroll", handleScroll);
-        const storedUser = localStorage.getItem("user");
-        if (storedUser) {
-            setUser(JSON.parse(storedUser));
-        }
         return () => {
             window.removeEventListener("scroll", handleScroll);
         };
     }, [pathname]);
 
-    const handleSignOut = () => {
-        localStorage.removeItem("user");
-        signOut();
-        setUser(null);
-    };
-
-    // Close menu with animation when clicking outside
     useEffect(() => {
         const handleClickOutside = (event: MouseEvent) => {
             if (menuRef.current && !menuRef.current.contains(event.target as Node)) {
-                setIsClosing(true); // Start closing animation
+                setIsClosing(true);
                 setTimeout(() => {
-                    setMenuOpen(false); // Hide menu after animation
+                    setMenuOpen(false);
                     setIsClosing(false);
-                }, 300); // Adjust timing to match animation duration
+                }, 300);
             }
         };
 
@@ -86,23 +71,6 @@ const Header = () => {
                         <div className="flex items-center gap-3">
                             <LanguageSwitcher sticky={sticky} />
                             <ThemeToggler />
-                            {user?.user || session?.user ? (
-                                <div className="relative group flex items-center justify-center">
-                                    <Image
-                                        src="/images/avatar/avatar_1.jpg"
-                                        alt="Image"
-                                        width={35}
-                                        height={35}
-                                        quality={100}
-                                        className="rounded-full cursor-pointer "
-                                    />
-                                    <p
-                                        className="absolute w-fit text-sm font-medium text-center z-10 invisible opacity-0 group-hover:visible group-hover:opacity-100 transition-opacity duration-200 bg-gray text-white py-1 px-2 min-w-28 rounded-full shadow-2xl top-full left-1/2 transform -translate-x-1/2 mt-3"
-                                    >
-                                        {user?.user || session?.user?.name}
-                                    </p>
-                                </div>
-                            ) : ('')}
                         </div>
 
                         <div className="relative flex align-middle">
@@ -131,15 +99,6 @@ const Header = () => {
                                                 <MenuList key={index} item={menuItem} closeMenu={() => setMenuOpen(false)} />
                                             )}
                                         </ul>
-
-                                        {user?.user || session?.user ? (
-                                            <div className="flex flex-col gap-2">
-                                                <button onClick={() => handleSignOut()} className="flex justify-center items-center cursor-pointer gap-2 text-secondary hover:text-white dark:border dark:border-primary dark:hover:text-white bg-primary dark:hover:bg-transparent dark:hover:border dark:hover:border-white hover:bg-secondary text-xl font-bold rounded-full py-2.5 px-4.5 transition-all duration-300 ease-in-out">
-                                                    {t("signOut")}
-                                                    <Icon icon="solar:logout-outline" width="25" height="25" />
-                                                </button>
-                                            </div>
-                                        ) : null}
                                     </div>
                                     <div>
                                         <Link href="tel:+421918722720" className="text-secondary/60 dark:text-white/60 hover:text-secondary dark:hover:text-white">+421 918 722 720</Link>
