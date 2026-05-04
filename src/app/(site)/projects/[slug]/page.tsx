@@ -13,11 +13,13 @@ function localeFromCookieStore(cookieLocale: string | undefined): ProjectLocale 
 export async function generateMetadata({ params }: Props) {
   const { slug } = await params;
   const cookieStore = await cookies();
-  const locale = localeFromCookieStore(cookieStore.get("unique-locale")?.value);
+  const locale = localeFromCookieStore(
+    cookieStore.get("studio32-locale")?.value ?? cookieStore.get("unique-locale")?.value
+  );
 
   const project = getProjectsBySlug(slug, ["title"], locale);
-  const siteName = process.env.SITE_NAME || "Your Site Name";
-  const authorName = process.env.AUTHOR_NAME || "Your Author Name";
+  const siteName = process.env.SITE_NAME || "Studio32";
+  const authorName = process.env.AUTHOR_NAME || "Studio32";
 
   if (project?.title) {
     return {

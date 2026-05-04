@@ -3,7 +3,7 @@ import Herobanner from "@/app/components/shared/hero-banner";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-    title: "Projects | Studiova",
+    title: "Projects | Studio32",
 };
 
 export default function Page() {

@@ -32,13 +32,15 @@ function AboutusHero() {
                         <p className="text-white/70 max-w-md">
                             {t("heroSubtext").includes("high-performing") ? (
                                 <>We create <span className="text-primary">high-performing</span> digital designs that elevate brands and enhance conversions.</>
+                            ) : t("heroSubtext").includes("výkonné") ? (
+                                <>Navrhujeme <span className="text-primary">výkonné</span> digitálne riešenia, ktoré posilňujú značky a zvyšujú konverzie.</>
                             ) : (
                                 t("heroSubtext")
                             )}
                         </p>
                     </div>
                     <div className="flex flex-col lg:flex-row items-start lg:items-end gap-4">
-                        <h1 className="large-heading">Unique</h1>
+                        <h1 className="large-heading">Studio32</h1>
                         <div>
                             <NavigationLink navigationTitle="" navigationLink="/about-us" transform={false} />
                         </div>

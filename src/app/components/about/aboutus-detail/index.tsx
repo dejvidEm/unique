@@ -9,7 +9,7 @@ const AboutusDetail = () => {
             <div className='container'>
                 <div className='flex flex-col xl:flex-row gap-8'>
                     <div className='max-w-xl w-full'>
-                        <h2 className='text-56'>Unique.</h2>
+                        <h2 className='text-56'>Studio32.</h2>
                     </div>
                     <div className='flex flex-col gap-12'>
                         <p className="text-secondary dark:text-white">{t("aboutDetailPara1")}</p>

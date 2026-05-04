@@ -61,7 +61,13 @@ const Header = () => {
     }, [menuOpen, locale]);
 
     return (
-        <header className={`fixed top-0 z-50 w-full border-t-4 border-primary transition-all duration-500 ease-in-out before:content-[''] before:absolute before:top-0 before:left-0 before:w-full before:h-0 before:bg-primary before:transition-all before:duration-500 before:ease-in-out ${sticky ? "before:h-full" : "before:h-0"}`}>
+        <header
+            className={`fixed top-0 z-50 w-full border-t-4 border-primary transition-[background-color,box-shadow,backdrop-filter] duration-[680ms] ease-soft motion-reduce:transition-none ${
+                sticky
+                    ? "border-b border-black/[0.06] bg-white/50 shadow-[0_8px_24px_-12px_rgba(0,0,0,0.1)] backdrop-blur-sm backdrop-saturate-150 dark:border-white/[0.08] dark:bg-black/35 dark:shadow-[0_8px_24px_-12px_rgba(0,0,0,0.4)]"
+                    : "border-b border-transparent bg-transparent"
+            }`}
+        >
             <div className="container">
                 <nav className={`relative flex item-center justify-between ${sticky ? 'py-5' : 'py-7'}`}>
                     <div className='flex items-center'>
@@ -83,7 +89,7 @@ const Header = () => {
                                 :
                                 <div
                                     ref={menuRef}
-                                    className={`absolute -top-5 right-0 flex flex-col gap-5 min-w-80 sm:min-w-96 bg-white dark:bg-twilliteblack p-6 rounded-3xl shadow-lg transition-all duration-300 ease-in-out z-10 
+                                    className={`absolute -top-5 right-0 flex flex-col gap-5 min-w-80 sm:min-w-96 bg-white dark:bg-twilliteblack p-6 rounded-3xl shadow-lg transition-all duration-[480ms] ease-soft z-10 
                                     ${isClosing ? "opacity-0 scale-95" : "opacity-100 scale-100"}`}
                                 >
                                     <div className="flex items-center justify-between pb-5 border-b border-secondary/15 dark:border-white/15">
@@ -102,7 +108,7 @@ const Header = () => {
                                     </div>
                                     <div>
                                         <Link href="tel:+421918722720" className="text-secondary/60 dark:text-white/60 hover:text-secondary dark:hover:text-white">+421 918 722 720</Link>
-                                        <Link href="mailto:info@unique.sk"><h4>info@unique.sk</h4></Link>
+                                        <Link href="mailto:hello@studio32.sk"><h4>hello@studio32.sk</h4></Link>
                                     </div>
                                 </div>
                             }

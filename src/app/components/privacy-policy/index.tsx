@@ -7,7 +7,7 @@ function PrivacyPolicy() {
                 <div className="container">
                     <div className='flex flex-col gap-1.5 py-10 md:py-20'>
                         <p>
-                            This Privacy Statement explains how personal information about our (potential) customers and other individuals using our services is collected, used, and disclosed by Unique ("us", "we", "our"). This Privacy Statement describes our privacy practices in relation to the use of our websites, including any customer portals or interactive websites, our software (Next.js), services, solutions, tools, and related applications, services, and programs, including research and marketing activities, offered by us (the "Services").
+                            This Privacy Statement explains how personal information about our (potential) customers and other individuals using our services is collected, used, and disclosed by Studio32 ("us", "we", "our"). This Privacy Statement describes our privacy practices in relation to the use of our websites, including any customer portals or interactive websites, our software (Next.js), services, solutions, tools, and related applications, services, and programs, including research and marketing activities, offered by us (the "Services").
                         </p>
 
                         <p>

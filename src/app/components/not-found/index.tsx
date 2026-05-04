@@ -16,9 +16,9 @@ const NotFound = () => {
           <div className="text-center">
             <h2>{t("pageNotFound")}</h2>
           </div>
-          <Link href="/" className="group flex gap-3 items-center w-fit bg-primary hover:bg-secondary dark:border dark:border-primary dark:hover:border dark:hover:border-white/30 rounded-full transition-all duration-200 ease-in-out">
-                <span className="pl-6 text-lg font-bold text-secondary group-hover:text-white group-hover:translate-x-12 transform transition-transform duration-200 ease-in-out">{t("backToHome")}</span>
-                <svg className={` py-1 group-hover:-translate-x-[150px] group-hover:rotate-45 transition-all duration-200 ease-in-out `} width="58" height="58" viewBox="0 0 58 58" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <Link href="/" className="group flex gap-3 items-center w-fit bg-primary hover:bg-secondary dark:border dark:border-primary dark:hover:border dark:hover:border-white/30 rounded-full transition-all duration-[520ms] ease-soft">
+                <span className="pl-6 text-lg font-bold text-secondary group-hover:text-white group-hover:translate-x-12 transform transition-transform duration-[520ms] ease-soft">{t("backToHome")}</span>
+                <svg className={` py-1 group-hover:-translate-x-[150px] group-hover:rotate-45 transition-all duration-[520ms] ease-soft `} width="58" height="58" viewBox="0 0 58 58" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <g filter="url(#filter0_d_1_873)">
                         <rect x="3" y="2" width="52" height="52" rx="26" fill="white" />
                         <path d="M24 23H34M34 23V33M34 23L24 33" stroke="#1F2A2E" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />

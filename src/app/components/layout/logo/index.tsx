@@ -1,21 +1,15 @@
-import Image from 'next/image';
-import Link from 'next/link';
+import Link from "next/link";
+import NavMark from "./NavMark";
 
 const Logo = (props: { sticky: boolean }) => {
     const { sticky } = props;
+    const tone = sticky ? "text-secondary dark:text-white" : "text-white";
+
     return (
-        <Link href="/">
-            <Image
-                src={sticky ? "/images/logo/sticky_logo.svg" : "/images/logo/WhiteLogo.svg"}
-                alt="logo"
-                width={190}
-                height={34}
-                style={{ width: 'auto', height: 'auto' }}
-                quality={100}
-                priority={true}
-                className='hidden xsm:block'
-            />
-            <Image src={sticky ? "/images/logo/favicondark.svg" : "/images/logo/favicon.svg"} alt='logo' width={40} height={40} className='block xsm:hidden' />
+        <Link href="/" className={`inline-flex items-center ${tone} transition-colors duration-[680ms] ease-soft motion-reduce:transition-none`}>
+            <span className="sr-only">Studio32</span>
+            <NavMark className="hidden h-10 w-auto shrink-0 xsm:block md:h-12 lg:h-14 xl:h-16" />
+            <NavMark className="block h-9 w-auto shrink-0 xsm:hidden sm:h-10" />
         </Link>
     );
 };

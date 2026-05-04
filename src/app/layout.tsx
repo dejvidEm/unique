@@ -1,6 +1,11 @@
+import type { Metadata } from "next";
 import { Manrope } from "next/font/google";
 import "./globals.css";
 import ClientProviders from "./ClientProviders";
+
+export const metadata: Metadata = {
+  title: "Studio32",
+};
 
 const manrope = Manrope({
   subsets: ["latin"],

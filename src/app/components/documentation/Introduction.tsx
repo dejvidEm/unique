@@ -59,7 +59,7 @@ export const Introduction = () => {
           }
         </div>
         <div className="mt-5">
-          <p className="text-base font-medium text-midnight_text dark:text-white dark:text-opacity-50">Unique is built with Tailwind CSS and Next.js.</p>
+          <p className="text-base font-medium text-midnight_text dark:text-white dark:text-opacity-50">Studio32 is built with Tailwind CSS and Next.js.</p>
           <p className="text-base font-medium text-midnight_text dark:text-white dark:text-opacity-50">The site is ready to use and you can customize it to your requirements.</p>
           <p className="text-base font-medium text-midnight_text dark:text-white dark:text-opacity-50">To customize, you should have knowledge of Next.js, React, Tailwind and JSX.</p>
         </div>

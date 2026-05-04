@@ -12,8 +12,8 @@ export async function generateMetadata({ params }: Props) {
 
     const blog = getBlogsBySlug(slug, ["title", "detail", "date", "coverImage", "scrolltoread", "description", "galleryImg", "content"]);
 
-    const siteName = process.env.SITE_NAME || "Your Site Name";
-    const authorName = process.env.AUTHOR_NAME || "Your Author Name";
+    const siteName = process.env.SITE_NAME || "Studio32";
+    const authorName = process.env.AUTHOR_NAME || "Studio32";
 
     if (blog) {
         const metadata = {

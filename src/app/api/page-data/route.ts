@@ -15,8 +15,8 @@ function getStatsFactData(lang: "en" | "sk") {
     number: "01",
     name: isSk ? "Štatistiky a fakty" : "Stats & facts",
     heading: isSk
-      ? "Kvalitné webové dizajnové riešenia, ktorým môžete dôverovať."
-      : "High quality web design solutions you can trust.",
+      ? "Meníme chaos na značku s jasnou identitou"
+      : "We turn chaos into a brand with a clear identity",
     description: isSk
       ? "Pri výbere agentúry pre webový dizajn je dôležité zvážiť jej povesť, skúsenosti a špecifické potreby vášho projektu."
       : "When selecting a web design agency, it's essential to consider its reputation, experience, and the specific needs of your project.",
@@ -31,9 +31,27 @@ function getStatsFactData(lang: "en" | "sk") {
 const serviceDescpEn = "When selecting a web design agency, it's essential to consider its reputation, experience, and the specific needs of your project.";
 const serviceDescpSk = "Pri výbere agentúry pre webový dizajn je dôležité zvážiť jej povesť, skúsenosti a špecifické potreby vášho projektu.";
 
+const brandingDescpSk =
+  "Branding nie je len o logu či webovej stránke. Je to celkový dojem, ktorý si zákazník odnáša z každej interakcie s vašou firmou. Každý rok pribúdajú stovky tisíc nových ochranných známok – práve preto je silná značka kľúčom k odlíšeniu. Buduje dôveru, priťahuje nových zákazníkov a zvyšuje hodnotu vašich produktov aj služieb, čo sa prirodzene premieta do vyšších ziskov.";
+const brandingDescpEn =
+  "Branding isn't just a logo or a website. It's the overall impression customers take away from every interaction with your business. Every year, hundreds of thousands of new trademarks are filed—which is why a strong brand is essential to standing out. It builds trust, attracts new customers, and increases the value of your products and services, which naturally translates into higher profits.";
+
+const webDescpSk =
+  "Web nie je len vizitka na internete – je to centrum vašej značky. V záplave nových stránok uspejú len tie, ktoré sú premyslené a funkčné. Kvalitná webstránka vás odlíši od konkurencie, pritiahne pozornosť a posilní hodnotu vašej ponuky. Správne navrhnutý web je investícia, ktorá sa vracia v podobe vyšších konverzií a silnejšej značky.";
+const webDescpEn =
+  "A website isn't just an online business card—it's the hub of your brand. Among countless new sites, only the thoughtful and functional ones succeed. A quality website sets you apart from competitors, captures attention, and strengthens the value of your offering. A well-designed site is an investment that pays back through higher conversions and a stronger brand.";
+
+const contentDescpSk =
+  "Tvorba obsahu nie je len o príspevkoch či textoch. Je to spôsob, akým značka komunikuje, buduje dôveru a zostáva v pamäti zákazníka pri každom kontakte. V preplnenom digitálnom priestore rozhoduje konzistentný a kvalitný obsah o tom, či značka zanikne alebo vynikne. Premyslená komunikácia na sociálnych sieťach, v emailoch, blogoch či vizuáloch posilňuje identitu značky, priťahuje správne publikum a prirodzene zvyšuje jej hodnotu aj obchodné výsledky.";
+const contentDescpEn =
+  "Content creation isn't just about posts or copy—it's how a brand communicates, builds trust, and stays memorable at every customer touchpoint. In a crowded digital space, consistent, quality content decides whether a brand fades away or stands out. Thoughtful communication on social media, in emails, blogs, and visuals strengthens brand identity, attracts the right audience, and naturally increases both perceived value and business results.";
+
 function getServicesData(lang: "en" | "sk") {
   const isSk = lang === "sk";
   const descp = isSk ? serviceDescpSk : serviceDescpEn;
+  const brandingDescp = isSk ? brandingDescpSk : brandingDescpEn;
+  const webDescp = isSk ? webDescpSk : webDescpEn;
+  const contentDescp = isSk ? contentDescpSk : contentDescpEn;
   return {
     number: "03",
     name: isSk ? "Služby" : "Services",
@@ -42,9 +60,9 @@ function getServicesData(lang: "en" | "sk") {
       ? "Pohľad do našej tvorivosti—inovatívne dizajny, úspešné spolupráce a transformačné digitálne zážitky."
       : "A glimpse into our creativity—exploring innovative designs, successful collaborations, and transformative digital experiences.",
     data: [
-      { id: 1, image: "https://placehold.co/400x250", heading: isSk ? "Brandová identita" : "Brand identity", descp },
-      { id: 2, image: "https://placehold.co/400x250", heading: isSk ? "Vývoj webov" : "Web development", descp },
-      { id: 3, image: "https://placehold.co/400x250", heading: isSk ? "Tvorba obsahu" : "Content creation", descp },
+      { id: 1, image: "https://placehold.co/400x250", heading: "Branding", descp: brandingDescp },
+      { id: 2, image: "https://placehold.co/400x250", heading: isSk ? "Webstránka" : "Website", descp: webDescp },
+      { id: 3, image: "https://placehold.co/400x250", heading: isSk ? "Tvorba obsahu" : "Content creation", descp: contentDescp },
       { id: 4, image: "https://placehold.co/400x250", heading: isSk ? "Animácie a 3D modelovanie" : "Motion & 3d modeling", descp },
     ],
   };
@@ -183,8 +201,8 @@ function getAboutusStats(lang: "en" | "sk") {
 
 function getServicesSliderData(lang: "en" | "sk") {
   return lang === "sk"
-    ? ["Branding", "Vývoj webov", "Agentúra", "Tvorba obsahu", "SaaS", "Animácie a 3D", "Fotografia"]
-    : ["Branding", "Web development", "Agency", "Content creation", "SaaS", "Motion & 3d modeling", "Photography"];
+    ? ["Branding", "Webstránka", "Agentúra", "Tvorba obsahu", "SaaS", "Animácie a 3D", "Fotografia"]
+    : ["Branding", "Website", "Agency", "Content creation", "SaaS", "Motion & 3d modeling", "Photography"];
 }
 
 export const GET = async (request: Request) => {

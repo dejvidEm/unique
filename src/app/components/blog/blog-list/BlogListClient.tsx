@@ -35,7 +35,7 @@ export function BlogListClient({ blogs }: { blogs: Blog[] }) {
                                                 alt="image"
                                                 width={805}
                                                 height={450}
-                                                className="w-full h-full object-cover transition-transform duration-500 ease-in-out group-hover:scale-110"
+                                                className="w-full h-full object-cover transition-transform duration-[680ms] ease-soft group-hover:scale-[1.04]"
                                             />
                                         </div>
                                         <div className="flex flex-col gap-1">

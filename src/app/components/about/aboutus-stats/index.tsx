@@ -35,7 +35,7 @@ const AboutusStats = () => {
                             <div ref={ref} key={index} className="flex flex-col gap-5 md:gap-8 xl:pr-10">
                                 <h3 className="text-5xl md:text-6xl Xxl:text-7xl font-bold border-b border-secondary/12 dark:border-white/12 pb-4 md:pb-8">
                                     {value.prefix && <span>{value.prefix}</span>}
-                                    {inView ? <CountUp start={0} end={value.number} duration={3} /> : "0"}
+                                    {inView ? <CountUp start={0} end={value.number} duration={4.75} /> : "0"}
                                     {value.postfix && <span>{value.postfix}</span>}</h3>
                                 <div className="flex flex-col gap-2 md:gap-4">
                                     <h4>{value.title}</h4>

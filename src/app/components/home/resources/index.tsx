@@ -1,8 +1,8 @@
-
 "use client";
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import { useLanguage } from "@/app/context/LanguageContext";
 
 type Blog = {
     title: string;
@@ -11,13 +11,14 @@ type Blog = {
     coverImage: string;
 };
 const Resources = () => {
+    const { locale, t } = useLanguage();
     const [blogs, setblogs] = useState<Blog[]>([]);
 
     useEffect(() => {
         fetch("/api/blog")
             .then((res) => res.json())
             .then((data) => setblogs(data.slice(0, 3)));
-    }, []);
+    }, [locale]);
 
     return (
         <section className="bg-lightgray dark:bg-secondary py-20 md:py-40">
@@ -26,21 +27,23 @@ const Resources = () => {
                     <div className="flex flex-col gap-20">
                         <div className="flex flex-col gap-14 xl:gap-24">
                             <div className="flex flex-col xl:flex xl:flex-row items-start gap-8">
-                                <div className="flex items-center py-3 gap-4 md:gap-8 w-full max-w-xl">
-                                    <span className="bg-primary dark:text-secondary py-1.5 px-2.5 text-base font-medium rounded-full">09</span>
-                                    <div className="h-px w-16 bg-black/12 dark:bg-white/12" />
-                                    <p className="section-bedge py-1.5 px-4 rounded-full">Resources</p>
+                                <div className="flex w-full max-w-xl items-center gap-4 py-3 md:gap-8">
+                                    <span className="shrink-0 text-base font-semibold tabular-nums text-secondary/50 dark:text-white/70">
+                                        [09]
+                                    </span>
+                                    <div className="h-px w-16 shrink-0 bg-black/12 dark:bg-white/12" />
+                                    <p className="section-bedge rounded-full py-1.5 px-4">{t("resourcesSectionBadge")}</p>
                                 </div>
                                 <div className="flex flex-col gap-11">
                                     <div className="flex flex-col gap-5 ">
-                                        <h2 className="max-w-3xl">Recent news</h2>
-                                        <p className="max-w-2xl text-secondary/70 dark:text-white/70">Explore the latest trends, bold projects, and creative insights from our agency—shaping the future of branding, digital experiences, and storytelling.</p>
+                                        <h2 className="max-w-3xl">{t("resourcesHeading")}</h2>
+                                        <p className="max-w-2xl text-secondary/70 dark:text-white/70">{t("resourcesDescription")}</p>
                                     </div>
                                 </div>
                             </div>
                             <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-5 lg:gap-7">
                                 {blogs.map((value, index) => {
-                                    const formattedDate = new Date(value.date).toLocaleDateString("en-US", {
+                                    const formattedDate = new Date(value.date).toLocaleDateString(locale === "sk" ? "sk-SK" : "en-US", {
                                         day: "2-digit",
                                         month: "short",
                                         year: "numeric",
@@ -54,7 +57,7 @@ const Resources = () => {
                                                         alt="image"
                                                         width={805}
                                                         height={450}
-                                                        className="w-full h-full object-cover transition-transform duration-500 ease-in-out group-hover:scale-110"
+                                                        className="w-full h-full object-cover transition-transform duration-[680ms] ease-soft group-hover:scale-[1.04]"
                                                     />
                                                 </div>
                                                 <div className="flex flex-col gap-1">

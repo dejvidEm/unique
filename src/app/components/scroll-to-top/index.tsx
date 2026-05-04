@@ -31,7 +31,7 @@ export default function ScrollToTop() {
           <div
             onClick={scrollToTop}
             aria-label="scroll to top"
-            className="flex cursor-pointer items-center justify-center transition duration-300 ease-in-out"
+            className="flex cursor-pointer items-center justify-center transition-opacity duration-[480ms] ease-soft hover:opacity-90"
           >
             <Image src={"/images/Icon/up-arrow.svg"} alt="Images" width={55} height={55} />
           </div>

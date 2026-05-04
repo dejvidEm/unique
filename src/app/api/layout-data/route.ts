@@ -19,11 +19,11 @@ const MenuDataSk = [
 ];
 
 const footerDataEn = {
-  name: "Unique",
-  tagline: "Build something together?",
+  name: "Studio32",
+  tagline: "Let's talk",
   info: [
-    { icon: "/images/footer/email-arrow.svg", link: "info@unique.sk", href: "mailto:info@unique.sk" },
-    { icon: "/images/footer/Location.svg", link: "Zwolle Netherlands", href: "https://maps.app.goo.gl/hpDp81fqzGt5y4bC8" },
+    { icon: "/images/footer/email-arrow.svg", link: "hello@studio32.sk", href: "mailto:hello@studio32.sk" },
+    { icon: "/images/footer/Location.svg", link: "Bratislava, Slovakia", href: "https://www.google.com/maps/search/?api=1&query=Bratislava%2C+Slovakia" },
   ],
   links: [
     { name: "Home", href: "/" },
@@ -39,15 +39,15 @@ const footerDataEn = {
     { name: "Instagram", href: "https://www.instagram.com/" },
     { name: "Twitter", href: "https://x.com/" },
   ],
-  copyright: "© Unique copyright 2025",
+  copyright: "© Studio32 copyright 2026",
 };
 
 const footerDataSk = {
-  name: "Unique",
-  tagline: "Postavme niečo spoločne?",
+  name: "Studio32",
+  tagline: "Poďme sa porozprávať",
   info: [
-    { icon: "/images/footer/email-arrow.svg", link: "info@unique.sk", href: "mailto:info@unique.sk" },
-    { icon: "/images/footer/Location.svg", link: "Zwolle Netherlands", href: "https://maps.app.goo.gl/hpDp81fqzGt5y4bC8" },
+    { icon: "/images/footer/email-arrow.svg", link: "hello@studio32.sk", href: "mailto:hello@studio32.sk" },
+    { icon: "/images/footer/Location.svg", link: "Bratislava, Slovensko", href: "https://www.google.com/maps/search/?api=1&query=Bratislava%2C+Slovakia" },
   ],
   links: [
     { name: "Domov", href: "/" },
@@ -63,7 +63,7 @@ const footerDataSk = {
     { name: "Instagram", href: "https://www.instagram.com/" },
     { name: "Twitter", href: "https://x.com/" },
   ],
-  copyright: "© Unique autorské práva 2025",
+  copyright: "© Studio32 autorské práva 2026",
 };
 
 export const GET = async (request: Request) => {

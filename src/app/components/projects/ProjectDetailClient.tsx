@@ -83,16 +83,16 @@ export default function ProjectDetailClient({ slug }: { slug: string }) {
                 <div>
                   <Link
                     href="/projects"
-                    className="group flex w-fit items-center gap-3 rounded-full bg-primary transition-all duration-500 ease-in-out hover:bg-secondary dark:border dark:border-primary dark:hover:border dark:hover:border-white/30"
+                    className="group flex w-fit items-center gap-3 rounded-full bg-primary transition-all duration-[620ms] ease-soft hover:bg-secondary dark:border dark:border-primary dark:hover:border dark:hover:border-white/30"
                   >
                     <Image
                       src={"/images/Icon/back-btn.svg"}
                       alt=""
                       width={42}
                       height={42}
-                      className="transform transition-transform duration-500 ease-in-out group-hover:translate-x-16.5"
+                      className="transform transition-transform duration-[620ms] ease-soft group-hover:translate-x-16.5"
                     />
-                    <span className="pr-4 text-lg font-bold text-secondary transition-transform duration-500 ease-in-out group-hover:-translate-x-10 group-hover:text-white">
+                    <span className="pr-4 text-lg font-bold text-secondary transition-transform duration-[620ms] ease-soft group-hover:-translate-x-10 group-hover:text-white">
                       {t("back")}
                     </span>
                   </Link>

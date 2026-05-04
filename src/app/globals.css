@@ -1,5 +1,4 @@
 @import "tailwindcss";
-@import "tw-animate-css";
 
 @custom-variant dark (&:is(.dark *));
 @custom-variant dark (&:where(.dark, .dark *));
@@ -37,6 +36,7 @@
 }
 
 html {
+  overflow-x: clip;
   scrollbar-width: none;
   -ms-overflow-style: none;
 }
@@ -49,6 +49,7 @@ body {
   margin: 0;
   padding: 0;
   height: 100%;
+  overflow-x: clip;
   scrollbar-width: none;
   -ms-overflow-style: none;
 }
@@ -112,6 +113,40 @@ body::-webkit-scrollbar {
 
   .animate-spin-slow {
     animation: spin 3s linear infinite;
+  }
+
+  /** Gentle motion — smoother than default ease-in-out */
+  .ease-soft {
+    transition-timing-function: cubic-bezier(0.33, 1, 0.68, 1);
+  }
+
+  /** Homepage portfolio: continuous horizontal drift (two identical halves → seamless loop) */
+  .portfolio-marquee-track {
+    animation-duration: var(--portfolio-marquee-duration, 140s);
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-name: portfolio-marquee;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .portfolio-marquee-track {
+    animation: none !important;
+    transform: none !important;
+  }
+
+  .portfolio-marquee-wrapper {
+    overflow-x: auto;
+    overflow-y: hidden;
+  }
+}
+
+@keyframes portfolio-marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
   }
 }
 

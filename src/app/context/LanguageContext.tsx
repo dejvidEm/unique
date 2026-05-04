@@ -4,7 +4,7 @@ import React, { createContext, useContext, useState, useCallback, useEffect } fr
 
 export type Locale = "en" | "sk";
 
-const STORAGE_KEY = "unique-locale";
+const STORAGE_KEY = "studio32-locale";
 
 type LanguageContextType = {
   locale: Locale;
@@ -26,15 +26,15 @@ const translations: Record<Locale, Record<string, string>> = {
     terms: "Terms",
     privacyPolicy: "Privacy Policy",
     error404: "Error 404",
-    tagline: "Build something together?",
-    copyright: "© Unique copyright 2025",
+    tagline: "Let's talk",
+    copyright: "© Studio32 copyright 2026",
     // Hero
     heroSubtext: "We create high-performing digital designs that elevate brands and enhance conversions.",
     heroCarouselPrev: "Previous slide",
     heroCarouselNext: "Next slide",
     // Stats
     statsName: "Stats & facts",
-    statsHeading: "High quality web design solutions you can trust.",
+    statsHeading: "We turn chaos into a brand with a clear identity",
     statsDescription: "When selecting a web design agency, it's essential to consider its reputation, experience, and the specific needs of your project.",
     whoWeAre: "Who we are",
     // Services
@@ -100,7 +100,7 @@ const translations: Record<Locale, Record<string, string>> = {
     heroBannerProjectsDesc: "A <span>showcase of creativity</span>, strategy, and results—explore the projects that define us.",
     // About page detail section
     aboutDetailPara1: "It's a canvas for your creativity. It's your opportunity to transform bold ideas into dynamic, interactive experiences. Your work can shape identities, tell compelling stories, or spark meaningful change. As the digital landscape grows, so do the possibilities. And whether you thrive working remotely or in a buzzing agency space, the thrill of seeing your vision come to life is unmatched.",
-    aboutDetailPara2: "At Unique, we bring ideas to life through a range of services: branding, web development, agency solutions, content creation, SaaS, and motion & 3D modeling. As a web designer, you merge artistry and technology to craft \"digital experiences\" that inform, captivate, and inspire. Every day brings something new—one moment you're sketching innovative concepts, the next you're turning them into seamless, responsive designs. Web design keeps you pushing boundaries and creating at every turn!",
+    aboutDetailPara2: "At Studio32, we bring ideas to life through a range of services: branding, web development, agency solutions, content creation, SaaS, and motion & 3D modeling. As a web designer, you merge artistry and technology to craft \"digital experiences\" that inform, captivate, and inspire. Every day brings something new—one moment you're sketching innovative concepts, the next you're turning them into seamless, responsive designs. Web design keeps you pushing boundaries and creating at every turn!",
     // Project detail
     projectScopeOfWork: "Scope of work",
     projectIndustry: "Industry",
@@ -108,6 +108,24 @@ const translations: Record<Locale, Record<string, string>> = {
     projectWebsite: "Website",
     projectDescription: "Description",
     projectLoading: "Loading…",
+    // Homepage — Portfolio strip
+    portfolioSectionBadge: "Portfolio",
+    portfolioHeading: "Featured projects",
+    portfolioDescription:
+      "A glimpse into our creativity—exploring innovative designs, successful collaborations, and transformative digital experiences.",
+    // Homepage — Resources / blog teaser
+    resourcesSectionBadge: "Resources",
+    resourcesHeading: "Recent news",
+    resourcesDescription:
+      "Explore the latest trends, bold projects, and creative insights from our agency—shaping the future of branding, digital experiences, and storytelling.",
+    // Homepage — minimal facts strip (under Stats)
+    minimalFactsAriaLabel: "Quick facts about design and performance",
+    minimalFactsStat1Value: "93%",
+    minimalFactsStat1Caption: "of first impressions come down to design.",
+    minimalFactsStat2Value: "0.05 s",
+    minimalFactsStat2Caption: "Users form an opinion about your site that fast.",
+    minimalFactsStat3Value: "53%",
+    minimalFactsStat3Caption: "of people leave if a page loads longer than three seconds.",
   },
   sk: {
     menu: "Ponuka",
@@ -121,13 +139,13 @@ const translations: Record<Locale, Record<string, string>> = {
     terms: "Obchodné podmienky",
     privacyPolicy: "Ochrana súkromia",
     error404: "Chyba 404",
-    tagline: "Postavme niečo spoločne?",
-    copyright: "© Unique autorské práva 2025",
-    heroSubtext: "Vytvárame vysoko výkonné digitálne dizajny, ktoré pozdvihujú značky a zvyšujú konverzie.",
+    tagline: "Poďme sa porozprávať",
+    copyright: "© Studio32 autorské práva 2026",
+    heroSubtext: "Navrhujeme výkonné digitálne riešenia, ktoré posilňujú značky a zvyšujú konverzie.",
     heroCarouselPrev: "Predchádzajúci snímok",
     heroCarouselNext: "Ďalší snímok",
     statsName: "Štatistiky a fakty",
-    statsHeading: "Kvalitné webové dizajnové riešenia, ktorým môžete dôverovať.",
+    statsHeading: "Meníme chaos na značku s jasnou identitou",
     statsDescription: "Pri výbere agentúry pre webový dizajn je dôležité zvážiť jej povesť, skúsenosti a špecifické potreby vášho projektu.",
     whoWeAre: "Kto sme",
     servicesName: "Služby",
@@ -182,13 +200,28 @@ const translations: Record<Locale, Record<string, string>> = {
     heroBannerProjectsHeading: "Projekty",
     heroBannerProjectsDesc: "<span>Prehliadka tvorivosti</span>, stratégie a výsledkov—preskúmajte projekty, ktoré nás definujú.",
     aboutDetailPara1: "Je to plátno pre vašu tvorivosť. Je to vaša príležitosť premeniť smelé nápady na dynamické, interaktívne zážitky. Vaša práca môže formovať identity, rozprávať presvedčivé príbehy alebo vyvolávať zmysluplné zmeny. Keď digitálna krajina rastie, rastú aj možnosti. A či už prosperujete pri práci na diaľku alebo v rušnom priestore agentúry, vzrušenie z toho, keď sa vaša vízia zhmotní, je neporovnateľné.",
-    aboutDetailPara2: "V Unique dávame nápady do života prostredníctvom radu služieb: branding, vývoj webov, riešenia pre agentúry, tvorba obsahu, SaaS a motion & 3D modelovanie. Ako webový dizajnér spájate umenie a technológiu, aby ste vytvorili „digitálne zážitky“, ktoré informujú, fascinujú a inšpirujú. Každý deň prináša niečo nové—v jednom momente skicujete inovatívne koncepty, v ďalšom ich premieňate na bezproblémové, responzívne dizajny. Webový dizajn vás neustále posúva vpred a tvoríte na každom kroku!",
+    aboutDetailPara2: "V Studio32 dávame nápady do života prostredníctvom radu služieb: branding, vývoj webov, riešenia pre agentúry, tvorba obsahu, SaaS a motion & 3D modelovanie. Ako webový dizajnér spájate umenie a technológiu, aby ste vytvorili „digitálne zážitky“, ktoré informujú, fascinujú a inšpirujú. Každý deň prináša niečo nové—v jednom momente skicujete inovatívne koncepty, v ďalšom ich premieňate na bezproblémové, responzívne dizajny. Webový dizajn vás neustále posúva vpred a tvoríte na každom kroku!",
     projectScopeOfWork: "Rozsah práce",
     projectIndustry: "Odvetvie",
     projectRaised: "Získané financovanie",
     projectWebsite: "Webová stránka",
     projectDescription: "Popis",
     projectLoading: "Načítavam…",
+    portfolioSectionBadge: "Portfólio",
+    portfolioHeading: "Vybrané projekty",
+    portfolioDescription:
+      "Pohľad do našej tvorivosti—inovatívne dizajny, úspešné spolupráce a digitálne zážitky, ktoré menia značky.",
+    resourcesSectionBadge: "Zdroje",
+    resourcesHeading: "Novinky",
+    resourcesDescription:
+      "Objavte najnovšie trendy, odvážne projekty a tvorivé postrehy z našej agentúry—prispievame k budúcnosti brandingu, digitálnych zážitkov a storytellingu.",
+    minimalFactsAriaLabel: "Stručné fakty o dizajne a výkone",
+    minimalFactsStat1Value: "93 %",
+    minimalFactsStat1Caption: "Prvého dojmu tvorí dizajn.",
+    minimalFactsStat2Value: "0,05 s",
+    minimalFactsStat2Caption: "Používateľ má názor vytvorený za 0,05 sekundy.",
+    minimalFactsStat3Value: "53 %",
+    minimalFactsStat3Caption: "Ľudí odíde, ak sa web načítava dlhšie ako tri sekundy.",
   },
 };
 
@@ -200,7 +233,13 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
 
   useEffect(() => {
     const stored = localStorage.getItem(STORAGE_KEY) as Locale | null;
-    const next: Locale = stored === "en" || stored === "sk" ? stored : "sk";
+    const legacy = localStorage.getItem("unique-locale") as Locale | null;
+    let next: Locale =
+      stored === "en" || stored === "sk"
+        ? stored
+        : legacy === "en" || legacy === "sk"
+          ? legacy
+          : "sk";
     setLocaleState(next);
     if (typeof window !== "undefined") {
       localStorage.setItem(STORAGE_KEY, next);

@@ -9,9 +9,9 @@ const MenuList = ({ item, closeMenu }: { item: any, closeMenu: any }) => {
     const isActive = pathname === path;
 
     return (
-        <li className="group flex items-center gap-3 transition-all duration-500 ease-in-out">
+        <li className="group flex items-center gap-3 transition-all duration-[620ms] ease-soft">
             <div
-                className={`overflow-hidden transition-all duration-500 ease-in-out 
+                className={`overflow-hidden transition-all duration-[620ms] ease-soft
                 ${isActive ? "max-w-6 opacity-100" : "max-w-0 opacity-0"} 
                 group-hover:max-w-6 group-hover:opacity-100`}
             >

@@ -34,10 +34,10 @@ const ProjectList = () => {
                   <div className="relative">
                     <img src={project.coverImage} alt={project.title} className="w-full" />
                     <span
-                      className="pointer-events-none absolute inset-0 flex items-center justify-center bg-black/0 opacity-0 backdrop-blur-0 transition-all duration-300 ease-out md:group-hover:bg-black/70 md:group-hover:opacity-100 md:group-hover:backdrop-blur-sm"
+                      className="pointer-events-none absolute inset-0 flex items-center justify-center bg-black/0 opacity-0 backdrop-blur-0 transition-all duration-[520ms] ease-soft md:group-hover:bg-black/70 md:group-hover:opacity-100 md:group-hover:backdrop-blur-sm"
                       aria-hidden
                     >
-                      <span className="scale-90 opacity-0 transition-all delay-75 duration-300 ease-out md:group-hover:scale-100 md:group-hover:opacity-100">
+                      <span className="scale-[0.97] opacity-0 transition-all delay-100 duration-[520ms] ease-soft md:group-hover:scale-100 md:group-hover:opacity-100">
                         <svg width="65" height="64" viewBox="0 0 65 64" fill="none" xmlns="http://www.w3.org/2000/svg">
                           <rect x="0.333374" width="64" height="64" rx="32" fill="#C1FF72" />
                           <path

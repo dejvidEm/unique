@@ -31,9 +31,7 @@ const Contact = (props: { contactdataNumber: string }) => {
         fetchData()
     }, [locale])
     const reset = () => {
-        formData.name = "";
-        formData.email = "";
-        formData.message = "";
+        setFormData({ name: "", email: "", message: "" });
     };
     const handleSubmit = async (e: any) => {
         e.preventDefault();
@@ -56,6 +54,7 @@ const Contact = (props: { contactdataNumber: string }) => {
             })
             .catch((error) => {
                 console.log(error.message);
+                setLoader(false);
             });
     };
     const handleChange = (e: any) => {
@@ -73,10 +72,12 @@ const Contact = (props: { contactdataNumber: string }) => {
                 <div className="flex flex-col gap-8 md:gap-20">
                     <div className="flex flex-col gap-14 xl:gap-24">
                         <div className="flex flex-col xl:flex xl:flex-row items-start gap-8">
-                            <div className="flex items-center py-3 gap-4 md:gap-8 w-full max-w-xl">
-                                <span className="bg-primary dark:text-secondary py-1.5 px-2.5 text-base font-medium rounded-full">{contactdataNumber ? contactdataNumber : 10}</span>
-                                <div className="h-px w-16 bg-black/12 dark:bg-white/12" />
-                                <p className="section-bedge py-1.5 px-4 rounded-full">{t("contactUs")}</p>
+                            <div className="flex w-full max-w-xl items-center gap-4 py-3 md:gap-8">
+                                <span className="shrink-0 text-base font-semibold tabular-nums text-secondary/50 dark:text-white/70">
+                                    [{contactdataNumber ? String(contactdataNumber) : "10"}]
+                                </span>
+                                <div className="h-px w-16 shrink-0 bg-black/12 dark:bg-white/12" />
+                                <p className="section-bedge rounded-full py-1.5 px-4">{t("contactUs")}</p>
                             </div>
                             <div className="flex flex-col gap-11">
                                 <div className="flex flex-col gap-5 ">
@@ -159,39 +160,73 @@ const Contact = (props: { contactdataNumber: string }) => {
                                 )}
                                 <div>
                                     {!loader ? (
-                                        <button type="submit" className="group relative flex justify-center items-center w-full bg-primary hover:bg-secondary rounded-full transition-all duration-300 ease-in-out cursor-pointer">
-                                            <span className="py-4 px-2 text-lg font-bold text-secondary group-hover:text-white transition-all duration-300 ease-in-out">{t("submitMessage")}</span>
-                                            <div className="absolute top-0.5 right-0.5 transition-all duration-300 ease-in-out group-hover:left-0">
-                                                <svg className="flex items-center transition-transform duration-300 ease-in-out group-hover:rotate-45" width="58" height="58" viewBox="0 0 58 58" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                    <g filter="url(#filter0_d_1_873)">
-                                                        <rect x="3" y="2" width="52" height="52" rx="26" fill="white" />
-                                                        <path d="M24 23H34M34 23V33M34 23L24 33" stroke="#1F2A2E" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                                                    </g>
-                                                    <defs>
-                                                        <filter id="filter0_d_1_873" x="0" y="0" width="58" height="58" filterUnits="userSpaceOnUse" colorInterpolationFilters="sRGB">
-                                                            <feFlood floodOpacity="0" result="BackgroundImageFix" />
-                                                            <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha" />
-                                                            <feOffset dy="1" />
-                                                            <feGaussianBlur stdDeviation="1.5" />
-                                                            <feComposite in2="hardAlpha" operator="out" />
-                                                            <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.15 0" />
-                                                            <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_1_873" />
-                                                            <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_1_873" result="shape" />
-                                                        </filter>
-                                                    </defs>
-                                                </svg>
-                                            </div>
+                                        <button
+                                            type="submit"
+                                            className="group flex w-full cursor-pointer items-center justify-center gap-4 rounded-full bg-primary transition-all duration-[520ms] ease-soft hover:bg-secondary dark:border dark:border-primary dark:hover:border dark:hover:border-white/30"
+                                        >
+                                            <span className="transform pl-8 text-lg font-bold text-secondary transition-transform duration-[520ms] ease-soft group-hover:translate-x-10 group-hover:text-white">
+                                                {t("submitMessage")}
+                                            </span>
+                                            <svg
+                                                className="py-1 transition-all duration-[520ms] ease-soft group-hover:-translate-x-36 group-hover:rotate-45"
+                                                width="58"
+                                                height="58"
+                                                viewBox="0 0 58 58"
+                                                fill="none"
+                                                xmlns="http://www.w3.org/2000/svg"
+                                                aria-hidden
+                                            >
+                                                <g filter="url(#filter0_d_contact_submit)">
+                                                    <rect x="3" y="2" width="52" height="52" rx="26" fill="white" />
+                                                    <path
+                                                        d="M24 23H34M34 23V33M34 23L24 33"
+                                                        stroke="#1F2A2E"
+                                                        strokeWidth="1.5"
+                                                        strokeLinecap="round"
+                                                        strokeLinejoin="round"
+                                                    />
+                                                </g>
+                                                <defs>
+                                                    <filter
+                                                        id="filter0_d_contact_submit"
+                                                        x="0"
+                                                        y="0"
+                                                        width="58"
+                                                        height="58"
+                                                        filterUnits="userSpaceOnUse"
+                                                        colorInterpolationFilters="sRGB"
+                                                    >
+                                                        <feFlood floodOpacity="0" result="BackgroundImageFix" />
+                                                        <feColorMatrix
+                                                            in="SourceAlpha"
+                                                            type="matrix"
+                                                            values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+                                                            result="hardAlpha"
+                                                        />
+                                                        <feOffset dy="1" />
+                                                        <feGaussianBlur stdDeviation="1.5" />
+                                                        <feComposite in2="hardAlpha" operator="out" />
+                                                        <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.15 0" />
+                                                        <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_contact_submit" />
+                                                        <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_contact_submit" result="shape" />
+                                                    </filter>
+                                                </defs>
+                                            </svg>
                                         </button>
                                     ) : (
-                                        <button className="bg-grey item-center flex gap-2 py-3 px-7 rounded">
+                                        <button
+                                            type="button"
+                                            disabled
+                                            className="flex w-full cursor-wait items-center justify-center gap-3 rounded-full bg-primary/25 py-4 dark:bg-white/10"
+                                        >
                                             <div
-                                                className="animate-spin inline-block size-6 border-2 border-current border-t-transparent text-primary rounded-full dark:text-primary"
+                                                className="inline-block size-6 animate-spin rounded-full border-2 border-current border-t-transparent text-secondary dark:text-white"
                                                 role="status"
                                                 aria-label="loading"
                                             >
                                                 <span className="sr-only">Loading...</span>
-                                            </div>{" "}
-                                            {t("submitting")}
+                                            </div>
+                                            <span className="text-lg font-bold text-secondary dark:text-white">{t("submitting")}</span>
                                         </button>
                                     )}
                                 </div>
